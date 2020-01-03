@@ -12,22 +12,6 @@ import { MatCardModule } from '@angular/material/card';
 })
 
 export class AppComponent implements OnChanges {
-  title = 'markdown-preview';
-  defaultText = `
-  # H1 Header
-  ## H2 Sub Header
-  [My Link](http://www.sourcecodesamurai.com)
-  \`inline code (I think)\`
-  \`\`\`
-   Attempt at a Code Block
-   \`\`\`
-
-   - List Item
-
-   **Bolded Text**
-  `;
-
-previewText = this.parseMarkDownText(this.defaultText);
 
 constructor() {
   let opts: MarkedOptions ;
@@ -37,14 +21,18 @@ constructor() {
   }, opts);
   setOptions(opts);
 }
+  title = 'markdown-preview';
+  defaultText = `
+  # H1 Header
+  ## H2 Sub Header
+  [My Link](http://www.sourcecodesamurai.com)
 
-ngOnChanges() {}
+   - List Item
 
+   *Bolded Text*
+  `;
 
-
-parseMarkDownText(input: string): string {
-  return parse(this.defaultText);
-}
+previewText = this.parseMarkDownText(this.defaultText);
 
   form = new FormGroup({});
   model = { defaultText: this.defaultText } ;
@@ -53,9 +41,19 @@ parseMarkDownText(input: string): string {
     key: 'editor',
     type: 'textarea',
     id: 'editor',
+    name: 'editor',
     templateOptions: {
       placeholder: this.defaultText,
+      onChange: this.previewText = this.parseMarkDownText('#This worked!'),
    //   appearance: 'fill'
     }
   }];
+
+ngOnChanges() {}
+
+
+
+parseMarkDownText(input: string): string {
+  return parse(this.defaultText);
+}
 }
