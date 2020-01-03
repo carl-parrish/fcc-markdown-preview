@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
 import { MarkedOptions, setOptions, parse } from 'marked';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-root',
