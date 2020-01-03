@@ -36,24 +36,26 @@ previewText = this.parseMarkDownText(this.defaultText);
 
   form = new FormGroup({});
   model = { defaultText: this.defaultText } ;
-  label = this.defaultText ;
+  label = 'Enter Text Here' ;
   fields: FormlyFieldConfig[] = [{
     key: 'editor',
-    type: 'textarea',
     id: 'editor',
     name: 'editor',
+    type: 'textarea',
     templateOptions: {
       placeholder: this.defaultText,
-      onChange: this.previewText = this.parseMarkDownText('#This worked!'),
+      onChange: 'this.previewText = this.parseMarkDownText(this.form.get("editor").value);',
    //   appearance: 'fill'
     }
   }];
+
 
 ngOnChanges() {}
 
 
 
 parseMarkDownText(input: string): string {
-  return parse(this.defaultText);
+  console.log('Method Fired');
+  return parse(input);
 }
 }
