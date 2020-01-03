@@ -14,9 +14,18 @@ import { MatCardModule } from '@angular/material/card';
 export class AppComponent implements OnChanges {
   title = 'markdown-preview';
   defaultText = `
-  # Default Text
-  `;
+  # H1 Header
+  ## H2 Sub Header
+  [My Link](http://www.sourcecodesamurai.com)
+  \`inline code (I think)\`
+  \`\`\`
+   Attempt at a Code Block
+   \`\`\`
 
+   - List Item
+
+   **Bolded Text**
+  `;
 
 previewText = this.parseMarkDownText(this.defaultText);
 
