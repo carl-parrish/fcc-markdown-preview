@@ -41,19 +41,12 @@ parseMarkDownText(input: string): string {
   model = { defaultText: this.defaultText } ;
   label = this.defaultText ;
   fields: FormlyFieldConfig[] = [{
-    key: 'preview',
+    key: 'editor',
     type: 'textarea',
+    id: 'editor',
     templateOptions: {
       placeholder: this.defaultText,
    //   appearance: 'fill'
     }
-  },
-  {
-    key: 'marked',
-    type: 'textarea',
-    templateOptions: {
-      placeholder: this.previewText,
-      readonly: true
-    }
-  } ];
+  }];
 }
