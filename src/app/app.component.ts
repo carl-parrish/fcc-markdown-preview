@@ -1,4 +1,4 @@
-import { Component, OnChanges } from '@angular/core';
+import { Component, OnChanges, ViewChild, ElementRef, ViewContainerRef, AfterViewInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
@@ -11,16 +11,10 @@ import { MatCardModule } from '@angular/material/card';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements OnChanges {
+export class AppComponent implements OnChanges, AfterViewInit {
 
-constructor() {
-  let opts: MarkedOptions ;
-  opts = Object.assign ({
-    gfm: true,
-    breaks: true
-  }, opts);
-  setOptions(opts);
-}
+  @ViewChild('preview', {read: ViewContainerRef, static: true}) preview: ViewContainerRef;
+
   title = 'markdown-preview';
   defaultText = `
   # H1 Header
@@ -37,7 +31,22 @@ Code Block Example
 \`Inline Code Block Example\`
   `;
 
-previewText = this.parseMarkDownText(this.defaultText);
+constructor() {
+  let opts: MarkedOptions ;
+  opts = Object.assign ({
+    gfm: true,
+    breaks: true
+  }, opts);
+  setOptions(opts);
+}
+
+ngAfterViewInit(){
+// let view = this.tpl.createEmbeddedView(null);
+}
+
+
+
+ previewText = this.parseMarkDownText(this.defaultText);
 
   form = new FormGroup({});
   model = { defaultText: this.defaultText } ;
@@ -49,8 +58,9 @@ previewText = this.parseMarkDownText(this.defaultText);
     type: 'textarea',
     templateOptions: {
       placeholder: this.defaultText,
-      onChange: 'this.previewText = this.parseMarkDownText(this.form.get("editor").value);',
-   //   appearance: 'fill'
+       onChange: console.log(this.form.controls.editor),
+      // onChange: this.previewText = this.parseMarkDownText(this.form.get('editor').value),
+      // onChange: this.parseMarkDownText('*Markdown Called!'),
     }
   }];
 
