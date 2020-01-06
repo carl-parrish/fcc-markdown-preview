@@ -30,6 +30,7 @@ constructor() {
    - List Item
 
    *Bolded Text*
+   \`\`\`Code Example \`\`\`
   `;
 
 previewText = this.parseMarkDownText(this.defaultText);
