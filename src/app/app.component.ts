@@ -31,8 +31,10 @@ constructor() {
 
    *Bolded Text*
    \`\`\`
-Code Example
+Code Block Example
 \`\`\`
+
+\`Inline Code Block Example\`
   `;
 
 previewText = this.parseMarkDownText(this.defaultText);
