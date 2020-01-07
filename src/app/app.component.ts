@@ -58,7 +58,7 @@ ngAfterViewInit(){
     type: 'textarea',
     templateOptions: {
       placeholder: this.defaultText,
-       onChange: console.log(this.form.controls.editor),
+       onChange: console.log(this.form.value.editor),
       // onChange: this.previewText = this.parseMarkDownText(this.form.get('editor').value),
       // onChange: this.parseMarkDownText('*Markdown Called!'),
     }
