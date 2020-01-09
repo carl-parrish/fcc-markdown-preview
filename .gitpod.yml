@@ -5,8 +5,12 @@ vscode:
   extensions:
     - johnpapa.angular-essentials@0.6.3:kn6MdE8GXp3Nplq14ISQWg==
     - bierner.github-markdown-preview@0.0.2:/2y3s+rxTHIQLjFnQusowg==
-    - CoenraadS.bracket-pair-colorizer-2@0.0.29:Y00hDi6uxq/5AWl637owFQ==
+
+    - humao.rest-client@0.23.0:JNawNa9Juht3Bl5xY2refg==
+
+    - 2gua.rainbow-brackets@0.0.6:Tbu8dTz0i+/bgcKQTQ5b8g==
+
+    - asvetliakov.vscode-neovim@0.0.47:WAJxAHlxXWgCKwUUJyYyiQ==
 
 tasks:
   - command: zsh
-  
