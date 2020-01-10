@@ -10,7 +10,5 @@ vscode:
 
     - 2gua.rainbow-brackets@0.0.6:Tbu8dTz0i+/bgcKQTQ5b8g==
 
-    - asvetliakov.vscode-neovim@0.0.47:WAJxAHlxXWgCKwUUJyYyiQ==
-
 tasks:
   - command: zsh
