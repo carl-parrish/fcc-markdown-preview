@@ -59,6 +59,8 @@ Code Block Example
         name: 'editor',
         type: 'textarea',
         templateOptions: {
+            rows: 5,
+            cols: 50,
             placeholder: this.defaultText,
             // onChange: console.log(this.form.value),
             // onChange: this.previewText = this.parseMarkDownText(this.form.get('editor').value),
@@ -72,7 +74,7 @@ Code Block Example
 
 
     parseMarkDownText(input: string): string {
-        console.log(`A Week from now will be ${new s.Date().addDays(6)}`);
+        console.log(`A Week from now will be ${new SD.Date().addDays(6).medium()}`);
         console.log('Method Fired');
         return parse(input);
     }
