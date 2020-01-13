@@ -1,4 +1,4 @@
-import { Component, OnChanges, ViewChild, ElementRef, ViewContainerRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
@@ -12,11 +12,14 @@ import { MatCardModule } from '@angular/material/card';
     styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements OnChanges, AfterViewInit {
+export class AppComponent implements OnInit {
 
-    @ViewChild('preview', { read: ViewContainerRef, static: true }) preview: ViewContainerRef;
 
     title = 'markdown-preview';
+    opts:MarkedOptions;
+    form: FormGroup;
+    fields: FormlyFieldConfig[];
+
     defaultText = `
   # H1 Header
   ## H2 Sub Header
@@ -32,27 +35,13 @@ Code Block Example
 \`Inline Code Block Example\`
   `;
 
-    constructor() {
-        let opts: MarkedOptions;
-        opts = Object.assign({
-            gfm: true,
-            breaks: true
-        }, opts);
-        setOptions(opts);
-    }
+    constructor() { }
 
-    ngAfterViewInit() {
-        // let view = this.tpl.createEmbeddedView(null);
-    }
-
-
-
-    previewText = this.parseMarkDownText(this.defaultText);
-
-    form = new FormGroup({});
-    model = {};
+   ngOnInit() {
+       this.form = new FormGroup({});
+        model = {};
     label = 'Enter Text Here';
-    fields: FormlyFieldConfig[] = [{
+    this.fields = [{
         key: 'editor',
         id: 'editor',
         name: 'editor',
@@ -66,17 +55,14 @@ Code Block Example
             // onChange: this.parseMarkDownText('*Markdown Called!'),
         }
     }];
+       this.opts = Object.assign({
+            gfm: true,
+            breaks:true
+       }, this.opts);
+   }
 
 
-
-
-    ngOnChanges() {
-        this.form.get('editor').valueChanges.subscribe(val => {
-            console.log('Yeah this works');
-        });
-    }
-
-
+    previewText = this.parseMarkDownText(this.defaultText);
 
     parseMarkDownText(input: string): string {
         console.log('Method Fired');
