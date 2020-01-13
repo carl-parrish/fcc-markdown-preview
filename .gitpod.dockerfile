@@ -3,7 +3,7 @@ FROM gitpod/workspace-full
 USER gitpod
 
 # Install custom tools, runtime, etc.
-RUN sudo add-apt-repository ppa:neovim-ppa/unstable
+RUN sudo add-apt-repository -y ppa:neovim-ppa/unstable
 RUN sudo apt-get update && \
     sudo apt-get install -y zsh neovim
 
