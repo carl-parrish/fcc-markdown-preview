@@ -12,5 +12,7 @@ vscode:
 
     - WakaTime.vscode-wakatime@2.2.1:5pOtrx5Q2i2UzuEg6Qu0Ug==
 
+    - asvetliakov.vscode-neovim@0.0.49:gNwuFH7vMPrlA9u3m4fkpQ==
+
 tasks:
   - command: zsh
