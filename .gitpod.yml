@@ -10,5 +10,7 @@ vscode:
 
     - 2gua.rainbow-brackets@0.0.6:Tbu8dTz0i+/bgcKQTQ5b8g==
 
+    - WakaTime.vscode-wakatime@2.2.1:5pOtrx5Q2i2UzuEg6Qu0Ug==
+
 tasks:
   - command: zsh

@@ -5,7 +5,6 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 import { MarkedOptions, setOptions, parse } from 'marked';
 import { MatCardModule } from '@angular/material/card';
 
-import * as SD from 'sugar';
 
 @Component({
     selector: 'app-root',
@@ -51,7 +50,7 @@ Code Block Example
     previewText = this.parseMarkDownText(this.defaultText);
 
     form = new FormGroup({});
-    model = { defaultText: this.defaultText };
+    model = {};
     label = 'Enter Text Here';
     fields: FormlyFieldConfig[] = [{
         key: 'editor',
@@ -61,20 +60,25 @@ Code Block Example
         templateOptions: {
             rows: 5,
             cols: 50,
-            placeholder: this.defaultText,
-            // onChange: console.log(this.form.value),
+            placeholder: '',
+            onChange: console.log('Value Changed'),
             // onChange: this.previewText = this.parseMarkDownText(this.form.get('editor').value),
-            onChange: this.parseMarkDownText('*Markdown Called!'),
+            // onChange: this.parseMarkDownText('*Markdown Called!'),
         }
     }];
 
 
-    ngOnChanges() { }
+
+
+    ngOnChanges() {
+        this.form.get('editor').valueChanges.subscribe(val => {
+            console.log('Yeah this works');
+        });
+    }
 
 
 
     parseMarkDownText(input: string): string {
-        console.log(`A Week from now will be ${new SD.Date().addDays(6).medium()}`);
         console.log('Method Fired');
         return parse(input);
     }
