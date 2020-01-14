@@ -14,5 +14,7 @@ vscode:
 
     - asvetliakov.vscode-neovim@0.0.49:gNwuFH7vMPrlA9u3m4fkpQ==
 
+    - eamodio.gitlens@10.2.0:GNDO73Cmp0fYDiLNxVkbsQ==
+
 tasks:
   - command: zsh
