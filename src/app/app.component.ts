@@ -13,10 +13,8 @@ import { MatCardModule } from '@angular/material/card';
 })
 
 export class AppComponent implements OnInit {
-
-
     title = 'markdown-preview';
-    opts:MarkedOptions;
+    opts: MarkedOptions;
     form: FormGroup;
     fields: FormlyFieldConfig[];
 
@@ -27,45 +25,38 @@ export class AppComponent implements OnInit {
 
    - List Item
 
-   *Bolded Text*
+   __Bolded Text__
    \`\`\`
 Code Block Example
 \`\`\`
 
 \`Inline Code Block Example\`
+> This is blockquote line 1
+> This is blockquote line 2
+![Cara](https://green-party.s3-us-west-2.amazonaws.com/Cara+Logo+v4.png)
   `;
 
-    constructor() { }
+ previewText = this.parseMarkDownText(this.defaultText);
 
-   ngOnInit() {
-       this.form = new FormGroup({});
-        model = {};
-    label = 'Enter Text Here';
-    this.fields = [{
-        key: 'editor',
-        id: 'editor',
-        name: 'editor',
-        type: 'textarea',
-        templateOptions: {
-            rows: 5,
-            cols: 50,
-            placeholder: '',
-            onChange: console.log('Value Changed'),
-            // onChange: this.previewText = this.parseMarkDownText(this.form.get('editor').value),
-            // onChange: this.parseMarkDownText('*Markdown Called!'),
-        }
-    }];
-       this.opts = Object.assign({
-            gfm: true,
-            breaks:true
-       }, this.opts);
-   }
-
-
-    previewText = this.parseMarkDownText(this.defaultText);
+    ngOnInit() {
+        this.form = new FormGroup({});
+        this.fields = [{
+            key: 'editor',
+            id: 'editor',
+            name: 'editor',
+            type: 'textarea',
+            defaultValue: this.defaultText,
+            templateOptions: {
+                rows: 5,
+                cos: 50,
+                keyup: (field, $event)=>{ 
+                    this.previewText = this.parseMarkDownText(field.form.controls.editor.value);
+                },
+            }
+        }];
+    }
 
     parseMarkDownText(input: string): string {
-        console.log('Method Fired');
-        return parse(input);
+        return parse(input, {gfm: true, breaks: true});
     }
 }
