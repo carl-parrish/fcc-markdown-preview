@@ -14,4 +14,3 @@ vscode:
 
 tasks:
   - init: npm install
-  - command: zsh
