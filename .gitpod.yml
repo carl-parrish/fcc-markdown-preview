@@ -8,5 +8,6 @@ vscode:
     - CoenraadS.bracket-pair-colorizer-2@0.0.29:Y00hDi6uxq/5AWl637owFQ==
 
 tasks:
+  = npm install
   - command: zsh
   
