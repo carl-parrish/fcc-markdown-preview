@@ -12,10 +12,8 @@ ENV ZSH_THEME cloud
 
 
 #install NG CLI
-RUN echo npm i @angular/cli -g
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-
-#Install NG CLI
+RUN npm i npm -g
 RUN npm i @angular/cli -g
-
+RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+RUN zsh
