@@ -17,4 +17,6 @@ RUN npm i npm -g
 RUN npm i @angular/cli -g
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 
-CMD ["zsh"]
+#Install Google Chrome
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN sudo dpkg -i google-chrome-stable_current_amd64.deb
