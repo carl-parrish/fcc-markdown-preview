@@ -13,5 +13,6 @@ vscode:
 
 
 tasks:
-  - init: npm install
-
+  - before: printf "\n[settings]\napi_key = $WAKATIME_API_KEY\n" > ~/.wakatime.cfg
+    init: npm install
+    command: zsh
